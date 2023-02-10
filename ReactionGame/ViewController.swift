@@ -39,52 +39,60 @@ class ViewController: UIViewController {
     
     func changeLetter(){
         //choose a random letter
-        /*
-        let str = "abcdefghijklmnopqrstuvwxyz1234567890:.,;'-+="
-        let randomChar = str.index(after: Int.random(in: 0...str.count - 1))
-        popupButton.titleLabel?.text = String(str[randomChar])
-        */
+        let arr = Array(arrayLiteral: "軟", "體", "工", "程")
+        let randomNum = Int.random(in: 0...arr.count-1)
+        //popupButton.titleLabel?.text = arr[randomNum]
+        popupButton.setTitle(arr[randomNum], for: .normal)
         
-        //change where the letter is positioned
+        //*change where the letter is positioned
         popupButton.frame.origin = CGPoint(
-            x: Int.random(in: 0...150),
-            y: Int.random(in: 100...500)
+            x: Int.random(in: 0...200),
+            y: Int.random(in: 100...600)
         )
         
-        //change letter size
-        popupButton.titleLabel?.font = popupButton.titleLabel?.font.withSize(CGFloat.random(in: 5...75))
+        //*change letter size
+        /*
+        popupButton.frame.size = CGSize(
+            width: Double.random(in: 20...200),
+            height: Double.random(in: 20...200)
+        )
+        */
+        popupButton.titleLabel?.font = UIFont(
+            name: "Noto Sans Kannada",
+            size: CGFloat.random(in: 5...75)
+        )
+        //popupButton.titleLabel?.font.withSize(CGFloat.random(in: 5...75))
         
         //change letter color
-        popupButton.titleLabel?.textColor = UIColor(
+        popupButton.setTitleColor(UIColor(
             red: Double.random(in: 0...1),
             green: Double.random(in: 0...1),
             blue: Double.random(in: 0...1),
-            alpha: Double.random(in: 0.5...1)
+            alpha: Double.random(in: 0.5...1)), for: .normal
         )
         
-        //change letter angle
+        //*change letter angle
         
         //show the letter
-        popupButton.isHidden = false
+        //popupButton.isHidden = false
+        let delay = Double.random(in: 0...2)
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+            self.popupButton.isHidden = false
+        }
         
     }
     
     @IBAction func startGame(_ sender: UIButton) {
         newGameButton.isHidden = true
-        popupButton.isHidden = false
-        //changeLetter()
+        changeLetter()
     }
     
     @IBAction func letterTapped(_ sender: UIButton) {
         popupButton.isHidden = true
-        
-        let delay = Double.random(in: 0...2)
-        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-            //self.changeLetter()
-            self.changeLetter()
-        }
-        
+        changeLetter()        
     }
+    
+    //Record best record
     
     @IBAction func restartGame(_ sender: UIButton) {
         newGameButton.isHidden = false
