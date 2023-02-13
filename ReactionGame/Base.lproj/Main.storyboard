@@ -18,16 +18,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ucp-5C-eii">
-                                <rect key="frame" x="45.666666666666657" y="79" width="301.66666666666674" height="84.666666666666686"/>
+                                <rect key="frame" x="50" y="79" width="293.33333333333331" height="84.666666666666686"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test your reactions!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHq-bZ-jtP">
-                                        <rect key="frame" x="4.3333333333333428" y="0.0" width="293.33333333333326" height="42.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="293.33333333333331" height="42.333333333333336"/>
                                         <fontDescription key="fontDescription" name="NotoSansOriya-Bold" family="Noto Sans Oriya" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click the letters as fast as you can." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjc-C2-4jx">
-                                        <rect key="frame" x="0.0" y="42.333333333333329" width="301.66666666666669" height="42.333333333333329"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the letter as fast as you can." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjc-C2-4jx">
+                                        <rect key="frame" x="6.3333333333333428" y="42.333333333333329" width="280.66666666666663" height="42.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -91,8 +91,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="instruction" destination="Ucp-5C-eii" id="0BN-ir-f5x"/>
                         <outlet property="newGameButton" destination="JKx-Ue-yGs" id="q9z-cO-JyR"/>
                         <outlet property="popupButton" destination="DoR-rJ-KFH" id="hvK-f8-pXy"/>
+                        <outlet property="restartButton" destination="uvt-Z3-YVb" id="r2w-bX-stl"/>
                         <outlet property="timeCount" destination="RAL-7Q-9u2" id="cyl-Lm-yoB"/>
                     </connections>
                 </viewController>
