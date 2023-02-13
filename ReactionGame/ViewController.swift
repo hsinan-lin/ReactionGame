@@ -42,7 +42,8 @@ class ViewController: UIViewController {
             
             counter += 1
         }else{
-            // Make time count back to 0 when game restarts or when a letter is tapped
+            // Make time count back to 0 when a letter is tapped
+            timeCount.text = "0s"
             counter = 0.0
         }
     }
@@ -127,6 +128,8 @@ class ViewController: UIViewController {
     @IBAction func restartGame(_ sender: UIButton) {
         // Hide the letter
         popupButton.isHidden = true
+        // Show new game button
+        newGameButton.isHidden = false
         
         // Announce records
         var recordAnnouncement = UIAlertController()
@@ -150,9 +153,6 @@ class ViewController: UIViewController {
             handler: nil)
         recordAnnouncement.addAction(okAction)
         present(recordAnnouncement, animated: true)
-        
-        // Show new game button
-        newGameButton.isHidden = false
     }
 }
 
