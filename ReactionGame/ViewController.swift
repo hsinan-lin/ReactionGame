@@ -35,7 +35,7 @@ class ViewController: UIViewController {
     @objc func updateCounter() {
         // Display time passed when game starts
         if newGameButton.isHidden && !popupButton.isHidden{
-            var timePassed = counter/100
+            let timePassed = counter/100
             
             // Display time passed
             timeCount.text = "\(timePassed)s"
@@ -46,9 +46,10 @@ class ViewController: UIViewController {
             counter = 0.0
         }
     }
+    
     func recordTime(){
         //Store time records
-        var timePassed = counter/100
+        let timePassed = counter/100
         if timePassed > worstTime{
             worstTime = timePassed
         }
@@ -109,6 +110,9 @@ class ViewController: UIViewController {
         newGameButton.isHidden = true
         // Display a new letter
         changeLetter()
+        // Reset best/worst time
+        worstTime = 0.0
+        bestTime = 1000000000.0
     }
     
     @IBAction func letterTapped(_ sender: UIButton) {
@@ -125,10 +129,21 @@ class ViewController: UIViewController {
         popupButton.isHidden = true
         
         // Announce records
-        let recordAnnouncement = UIAlertController(
-            title: "Your best and worst records are:",
-            message: "Best record: \(bestTime)s \nWorst record: \(worstTime)s",
-            preferredStyle: .alert)
+        var recordAnnouncement = UIAlertController()
+        if worstTime != 0.0 || bestTime != 1000000000.0 {
+            // if a game has been played
+            recordAnnouncement = UIAlertController(
+                title: "Your best and worst records are:",
+                message: "Best record: \(bestTime)s \nWorst record: \(worstTime)s",
+                preferredStyle: .alert)
+            
+        }else{
+            // if a game hasn't been played
+            recordAnnouncement = UIAlertController(
+                title: "You haven't started a game",
+                message: "Tap the 'new game' button",
+                preferredStyle: .alert)
+        }
         let okAction = UIAlertAction(
             title: "OK",
             style: .default,
@@ -138,8 +153,6 @@ class ViewController: UIViewController {
         
         // Show new game button
         newGameButton.isHidden = false
-        
-        
     }
 }
 
