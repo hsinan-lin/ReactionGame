@@ -1,6 +1,5 @@
 # ReactionGame
-This is a game to test your reactions to alphabets of different size, colors, opacity, & positions. 
-Your best and worst reaction time will be recorded and displayed when you restart the game.
+This is a game to test a player’s reactions to a random English letter of different size, color, opacity, & position. The player’s best and worst reaction time will be recorded and displayed when the game restarts.
 
 Functions implemented:
 1. Generate and display a letter once the game starts.
